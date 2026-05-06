@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" href="logo_salmut.jpeg">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover" />
-  <title>Salmut — Salad Buah Imut | Premium Fresh</title>
+  <title>Salmut — Salad Buah Imut | Fresh & Healthy</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -18,20 +18,27 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #050505;
-      color: #F5EFE6;
+      background: #FFFFFF;
+      color: #1E3A5F;
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
 
+    /* PALETTE WARNA BARU - FRESH & CLEAN */
     :root {
-      --gold: #FFD700;
-      --gold-dark: #DAA520;
-      --gold-light: #FFF2CC;
-      --obsidian: #0A0A0A;
-      --card-bg: #111312;
-      --gold-glow: 0 0 20px rgba(255, 215, 0, 0.3);
-      --shadow-gold: 0 25px 45px -15px rgba(255, 215, 0, 0.2);
+      --primary-blue: #4A90E2;      /* Biru muda segar - utama */
+      --primary-dark: #3A7BC8;      /* Biru lebih tua - hover */
+      --primary-light: #E8F0FE;     /* Biru sangat muda - background */
+      --secondary-blue: #2D9CDB;    /* Biru kehijauan - aksen */
+      --text-dark: #1E3A5F;         /* Biru gelap - teks utama */
+      --text-muted: #5A6E8C;        /* Abu-abu biru - teks sekunder */
+      --white: #FFFFFF;              /* Putih murni */
+      --white-soft: #F8FAFF;        /* Putih susu - card */
+      --border-light: #E2E9F2;      /* Border abu-abu muda */
+      --shadow-sm: 0 10px 30px -12px rgba(74,144,226,0.1);
+      --shadow-md: 0 20px 35px -15px rgba(74,144,226,0.12);
+      --shadow-lg: 0 30px 50px -20px rgba(74,144,226,0.15);
+      --shadow-blue: 0 20px 35px -12px rgba(74,144,226,0.25);
     }
 
     /* ANIMATIONS */
@@ -40,9 +47,9 @@
       50% { transform: translateY(-12px); }
     }
 
-    @keyframes pulseGold {
-      0%, 100% { box-shadow: 0 0 5px rgba(255,215,0,0.3); border-color: rgba(255,215,0,0.3); }
-      50% { box-shadow: 0 0 20px rgba(255,215,0,0.6); border-color: rgba(255,215,0,0.8); }
+    @keyframes pulseBlue {
+      0%, 100% { box-shadow: 0 0 5px rgba(74,144,226,0.3); border-color: rgba(74,144,226,0.3); }
+      50% { box-shadow: 0 0 20px rgba(74,144,226,0.5); border-color: rgba(74,144,226,0.7); }
     }
 
     @keyframes floatSlow {
@@ -50,19 +57,14 @@
       50% { transform: translateY(-8px) rotate(1deg); }
     }
 
-    @keyframes shimmer {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-
     /* SCROLLBAR */
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #0A0A0A; }
-    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #FFD700, #DAA520); border-radius: 10px; }
+    ::-webkit-scrollbar-track { background: #F0F4FA; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #4A90E2, #2D9CDB); border-radius: 10px; }
 
-    /* HEADER */
+    /* HEADER - WHITE GLASS */
     header {
-      background: rgba(5, 5, 5, 0.92);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(16px);
       padding: 0.8rem 5%;
       display: flex;
@@ -71,7 +73,8 @@
       position: sticky;
       top: 0;
       z-index: 2000;
-      border-bottom: 1px solid rgba(255, 215, 0, 0.35);
+      border-bottom: 1px solid rgba(74,144,226,0.2);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.02);
       flex-wrap: wrap;
       gap: 0.8rem;
     }
@@ -79,7 +82,7 @@
     .logo {
       font-size: clamp(1.2rem, 5vw, 1.8rem);
       font-weight: 800;
-      background: linear-gradient(135deg, #FFD700 0%, #FFE5A0 40%, #DAA520 100%);
+      background: linear-gradient(135deg, #1E3A5F 0%, #4A90E2 40%, #2D9CDB 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -92,7 +95,7 @@
 
     .logo i {
       font-size: clamp(1.3rem, 5vw, 1.9rem);
-      background: linear-gradient(135deg, #FFD700, #DAA520);
+      background: linear-gradient(135deg, #4A90E2, #2D9CDB);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -108,7 +111,7 @@
     .navbar a {
       text-decoration: none;
       font-weight: 500;
-      color: #E8E0D5;
+      color: #5A6E8C;
       transition: 0.3s;
       font-size: clamp(0.75rem, 3vw, 0.9rem);
       letter-spacing: 0.3px;
@@ -122,28 +125,28 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: linear-gradient(90deg, #FFD700, #DAA520);
+      background: linear-gradient(90deg, #4A90E2, #2D9CDB);
       transition: 0.3s;
     }
 
     .navbar a:hover::after { width: 100%; }
-    .navbar a:hover { color: #FFD700; }
+    .navbar a:hover { color: #4A90E2; }
 
     .cart-icon {
       position: relative;
       cursor: pointer;
       font-size: clamp(1.1rem, 4vw, 1.4rem);
-      background: rgba(255, 215, 0, 0.12);
+      background: rgba(74,144,226,0.1);
       padding: clamp(6px, 2vw, 10px) clamp(12px, 4vw, 18px);
       border-radius: 100px;
       transition: all 0.3s;
-      color: #FFD700;
-      border: 1px solid rgba(255,215,0,0.3);
-      animation: pulseGold 2s infinite;
+      color: #4A90E2;
+      border: 1px solid rgba(74,144,226,0.3);
+      animation: pulseBlue 2s infinite;
     }
 
     .cart-icon:hover {
-      background: rgba(255, 215, 0, 0.3);
+      background: rgba(74,144,226,0.2);
       transform: scale(1.05);
     }
 
@@ -151,8 +154,8 @@
       position: absolute;
       top: -4px;
       right: -2px;
-      background: linear-gradient(135deg, #FFD700, #DAA520);
-      color: #050505;
+      background: linear-gradient(135deg, #4A90E2, #2D9CDB);
+      color: white;
       font-weight: 900;
       border-radius: 30px;
       width: clamp(18px, 5vw, 22px);
@@ -169,7 +172,7 @@
       align-items: center;
       gap: clamp(1.5rem, 5vw, 4rem);
       padding: clamp(2rem, 6vw, 5rem) clamp(1.5rem, 5vw, 8%);
-      background: radial-gradient(ellipse at 80% 40%, rgba(255,215,0,0.06) 0%, #050505 75%);
+      background: linear-gradient(135deg, #F0F7FF 0%, #FFFFFF 100%);
       flex-direction: row;
       flex-wrap: wrap;
     }
@@ -188,7 +191,7 @@
       font-size: clamp(1.8rem, 7vw, 4rem);
       font-weight: 800;
       line-height: 1.2;
-      background: linear-gradient(125deg, #FFD700 0%, #FFEAA0 40%, #DAA520 80%, #FFD700 100%);
+      background: linear-gradient(125deg, #1E3A5F 0%, #4A90E2 40%, #2D9CDB 80%, #4A90E2 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -197,23 +200,23 @@
 
     .content p {
       font-size: clamp(0.85rem, 3.5vw, 1rem);
-      color: #C5BFB0;
+      color: #5A6E8C;
       max-width: 550px;
       margin-bottom: 1.5rem;
       line-height: 1.6;
     }
 
     .cta {
-      background: linear-gradient(115deg, #FFD700, #DAA520);
+      background: linear-gradient(115deg, #4A90E2, #2D9CDB);
       padding: clamp(0.7rem, 2.5vw, 1rem) clamp(1.5rem, 5vw, 2.5rem);
       border-radius: 60px;
-      color: #050505;
-      font-weight: 800;
+      color: white;
+      font-weight: 700;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      box-shadow: 0 10px 25px rgba(255,215,0,0.2);
+      box-shadow: 0 10px 25px rgba(74,144,226,0.25);
       transition: all 0.4s;
       font-size: clamp(0.85rem, 3vw, 1rem);
     }
@@ -221,14 +224,15 @@
     .cta:hover {
       transform: translateY(-4px);
       gap: 15px;
-      box-shadow: 0 20px 35px rgba(255,215,0,0.4);
+      box-shadow: 0 20px 35px rgba(74,144,226,0.35);
+      background: linear-gradient(115deg, #3A7BC8, #4A90E2);
     }
 
     .hero .image img {
       max-width: min(100%, 380px);
       width: 100%;
       border-radius: 50%;
-      box-shadow: 0 20px 40px -10px rgba(255,215,0,0.3), 0 0 0 3px rgba(255,215,0,0.2);
+      box-shadow: 0 20px 40px -10px rgba(74,144,226,0.25), 0 0 0 3px rgba(74,144,226,0.15);
       animation: floatSlow 5s ease-in-out infinite;
     }
 
@@ -238,12 +242,13 @@
       font-size: clamp(1.5rem, 5vw, 2.5rem);
       font-weight: 700;
       margin-bottom: 1.8rem;
-      border-left: 4px solid #FFD700;
+      border-left: 4px solid #4A90E2;
       padding-left: 1rem;
+      color: #1E3A5F;
     }
 
     .heading span {
-      background: linear-gradient(120deg, #FFD700, #FFE5A0);
+      background: linear-gradient(120deg, #4A90E2, #2D9CDB);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -253,7 +258,7 @@
       padding: clamp(2rem, 6vw, 4rem) clamp(1.5rem, 5vw, 8%);
     }
 
-    /* CARD GRID */
+    /* CARD GRID - WHITE CARDS */
     .box-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
@@ -263,18 +268,18 @@
     }
 
     .card {
-      background: linear-gradient(145deg, #131715, #0C0F0E);
+      background: #FFFFFF;
       border-radius: 28px;
       overflow: hidden;
       transition: all 0.4s ease;
-      box-shadow: 0 15px 35px -10px rgba(0,0,0,0.5);
-      border: 1px solid rgba(255,215,0,0.2);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-light);
     }
 
     .card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 30px 50px -15px rgba(255,215,0,0.3);
-      border-color: rgba(255,215,0,0.6);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(74,144,226,0.4);
     }
 
     .card img {
@@ -290,18 +295,18 @@
       font-size: clamp(1.2rem, 4vw, 1.5rem);
       font-weight: 700;
       margin: 1.2rem 1.2rem 0.3rem;
-      color: #FFD700;
+      color: #1E3A5F;
     }
 
     .price {
       font-size: clamp(1.3rem, 4.5vw, 1.7rem);
       font-weight: 800;
-      color: #FFE5A0;
+      color: #4A90E2;
       margin: 0 1.2rem;
     }
 
     .card p {
-      color: #B0A99A;
+      color: #5A6E8C;
       margin: 0.5rem 1.2rem;
       font-size: clamp(0.85rem, 3vw, 0.9rem);
       line-height: 1.5;
@@ -317,12 +322,12 @@
     }
 
     .add-to-cart-btn {
-      background: linear-gradient(95deg, #FFD700, #DAA520);
+      background: linear-gradient(95deg, #4A90E2, #2D9CDB);
       border: none;
       padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1.2rem, 3vw, 1.5rem);
       border-radius: 50px;
-      color: #050505;
-      font-weight: 700;
+      color: white;
+      font-weight: 600;
       font-size: clamp(0.8rem, 2.5vw, 0.9rem);
       display: flex;
       align-items: center;
@@ -331,7 +336,12 @@
       transition: 0.3s;
     }
 
-    .add-to-cart-btn:hover { gap: 12px; transform: scale(1.02); box-shadow: 0 0 15px rgba(255,215,0,0.5); }
+    .add-to-cart-btn:hover { 
+      gap: 12px; 
+      transform: scale(1.02); 
+      box-shadow: 0 0 15px rgba(74,144,226,0.5);
+      background: linear-gradient(95deg, #3A7BC8, #4A90E2);
+    }
 
     /* REVIEW SECTION */
     .review-container {
@@ -342,18 +352,21 @@
     }
 
     .review-card {
-      background: linear-gradient(135deg, #131715, #0A0D0C);
+      background: #FFFFFF;
       border-radius: 28px;
       padding: clamp(1.5rem, 4vw, 2rem);
       text-align: left;
-      box-shadow: 0 15px 30px -10px rgba(0,0,0,0.5);
+      box-shadow: var(--shadow-sm);
       transition: 0.3s;
-      border-left: 4px solid #FFD700;
+      border-left: 4px solid #4A90E2;
+      border-top: 1px solid var(--border-light);
+      border-right: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
     }
 
     .review-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 25px 40px -12px rgba(255,215,0,0.2);
+      box-shadow: var(--shadow-md);
     }
 
     .review-card img {
@@ -362,30 +375,30 @@
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 1rem;
-      border: 2px solid #FFD700;
-      box-shadow: 0 0 15px rgba(255,215,0,0.2);
+      border: 2px solid #4A90E2;
+      box-shadow: 0 0 15px rgba(74,144,226,0.15);
     }
 
     .review-card h3 { 
       font-weight: 700; 
       margin-bottom: 8px; 
-      color: #FFD700; 
+      color: #1E3A5F; 
       font-size: clamp(1rem, 3.5vw, 1.1rem); 
     }
     
     .review-card p { 
-      color: #C5BFB0; 
+      color: #5A6E8C; 
       font-size: clamp(0.85rem, 3vw, 0.9rem); 
       line-height: 1.6; 
       font-style: italic;
     }
 
-    /* CART SIDEBAR - FIX SCROLL */
+    /* CART SIDEBAR */
     .cart-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(4px);
       display: none;
       z-index: 2100;
     }
@@ -397,31 +410,31 @@
       width: min(480px, 90%);
       max-width: 480px;
       height: 100vh;
-      background: #0B0D0C;
-      box-shadow: -20px 0 50px rgba(0,0,0,0.6);
+      background: #FFFFFF;
+      box-shadow: -20px 0 50px rgba(0,0,0,0.1);
       transition: right 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       z-index: 2200;
       display: flex;
       flex-direction: column;
-      border-left: 2px solid #FFD700;
+      border-left: 2px solid #4A90E2;
     }
 
     .cart-sidebar.open { right: 0; }
 
     .cart-header {
-      background: linear-gradient(115deg, #FFD700, #DAA520);
+      background: linear-gradient(115deg, #4A90E2, #2D9CDB);
       padding: 1.2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #050505;
+      color: white;
       flex-shrink: 0;
     }
 
     .cart-header h2 { font-size: 1.2rem; font-weight: 800; }
 
     .close-cart {
-      background: rgba(5,5,5,0.2);
+      background: rgba(255,255,255,0.2);
       border: none;
       width: 36px;
       height: 36px;
@@ -429,15 +442,15 @@
       cursor: pointer;
       transition: 0.3s;
       font-size: 1.1rem;
+      color: white;
     }
 
     .close-cart:hover {
-      background: #050505;
-      color: #FFD700;
+      background: white;
+      color: #4A90E2;
       transform: rotate(90deg);
     }
 
-    /* CART ITEMS - BISA DI-SCROLL */
     .cart-items {
       flex: 1;
       overflow-y: auto;
@@ -448,12 +461,12 @@
     .cart-item {
       display: flex;
       gap: 0.8rem;
-      background: #1A1F1D;
+      background: #F8FAFF;
       margin-bottom: 0.8rem;
       padding: 0.8rem;
       border-radius: 20px;
       align-items: center;
-      border: 1px solid rgba(255,215,0,0.15);
+      border: 1px solid #E2E9F2;
     }
 
     .cart-item img { 
@@ -465,13 +478,13 @@
 
     .item-info h4 { 
       font-size: 0.9rem; 
-      color: #FFD700; 
+      color: #1E3A5F; 
       margin-bottom: 4px;
     }
 
     .item-info p { 
       font-size: 0.85rem; 
-      color: #FFE5A0;
+      color: #4A90E2;
       font-weight: 600;
     }
 
@@ -483,24 +496,24 @@
     }
 
     .qty-btn {
-      background: #2D3330;
+      background: #E8F0FE;
       border: none;
       width: 28px;
       height: 28px;
       border-radius: 30px;
       font-weight: 800;
       cursor: pointer;
-      color: #FFD700;
+      color: #4A90E2;
       transition: 0.2s;
     }
 
     .qty-btn:hover {
-      background: #FFD700;
-      color: #050505;
+      background: #4A90E2;
+      color: white;
     }
 
     .delete-item { 
-      color: #FFB347; 
+      color: #FF8A5C; 
       cursor: pointer; 
       margin-left: auto; 
       font-size: 1.2rem;
@@ -508,15 +521,14 @@
     }
 
     .delete-item:hover {
-      color: #FF6B6B;
+      color: #FF5A2C;
       transform: scale(1.1);
     }
 
-    /* CART SUMMARY - TETAP DI BAWAH */
     .cart-summary { 
       padding: 1rem; 
-      border-top: 2px solid #FFD700; 
-      background: #0B0D0C;
+      border-top: 2px solid #E2E9F2; 
+      background: #FFFFFF;
       flex-shrink: 0;
     }
 
@@ -525,7 +537,7 @@
       font-size: 1.3rem; 
       display: flex; 
       justify-content: space-between; 
-      color: #FFD700;
+      color: #1E3A5F;
       margin-bottom: 1rem;
     }
 
@@ -535,9 +547,9 @@
       padding: 0.8rem;
       margin-bottom: 0.7rem;
       border-radius: 14px;
-      border: 1px solid rgba(255,215,0,0.4);
-      background: #1A1F1D;
-      color: white;
+      border: 1px solid #E2E9F2;
+      background: #F8FAFF;
+      color: #1E3A5F;
       font-size: 0.85rem;
       transition: 0.2s;
     }
@@ -545,8 +557,8 @@
     .checkout-form input:focus,
     .checkout-form textarea:focus {
       outline: none;
-      border-color: #FFD700;
-      box-shadow: 0 0 10px rgba(255,215,0,0.3);
+      border-color: #4A90E2;
+      box-shadow: 0 0 10px rgba(74,144,226,0.2);
     }
 
     .checkout-btn {
@@ -563,19 +575,21 @@
       gap: 8px;
       font-size: 1rem;
       transition: 0.3s;
+      color: white;
     }
 
     .checkout-btn:hover {
       transform: scale(1.02);
-      box-shadow: 0 0 20px rgba(37,211,102,0.4);
+      box-shadow: 0 0 20px rgba(37,211,102,0.3);
       gap: 12px;
     }
 
     /* FOOTER */
     footer {
-      background: #030303;
+      background: #F0F4FA;
       padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 5vw, 8%);
-      border-top: 1px solid rgba(255,215,0,0.2);
+      border-top: 1px solid #E2E9F2;
+      margin-top: 1rem;
     }
 
     .footer-grid {
@@ -585,37 +599,37 @@
     }
 
     footer h3 { 
-      color: #FFD700; 
+      color: #1E3A5F; 
       margin-bottom: 1rem; 
       font-size: clamp(1rem, 4vw, 1.2rem);
       font-weight: 700;
     }
 
     footer p, footer a { 
-      color: #A8A29E; 
+      color: #5A6E8C; 
       font-size: clamp(0.8rem, 3vw, 0.85rem); 
       text-decoration: none; 
       line-height: 1.6;
     }
 
     footer a:hover { 
-      color: #FFD700; 
+      color: #4A90E2; 
     }
 
     .social-icons a {
-      background: rgba(255,215,0,0.1);
+      background: #E8F0FE;
       padding: clamp(8px, 2.5vw, 10px) clamp(12px, 3.5vw, 16px);
       border-radius: 50px;
       display: inline-flex;
       margin-right: 10px;
-      color: #FFD700;
+      color: #4A90E2;
       transition: 0.25s;
       font-size: 1.1rem;
     }
 
     .social-icons a:hover { 
-      background: #FFD700; 
-      color: #050505; 
+      background: #4A90E2; 
+      color: white; 
       transform: translateY(-3px);
     }
 
@@ -625,6 +639,7 @@
       min-height: 150px;
       border-radius: 16px;
       margin-top: 0.5rem;
+      border: 1px solid #E2E9F2;
     }
 
     /* CONFETTI */
@@ -651,15 +666,15 @@
       50%{ transform: scale(1.3); }
     }
 
-    /* RESPONSIVE BREAKPOINTS */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       header { flex-direction: column; text-align: center; }
       .navbar { justify-content: center; width: 100%; }
       .hero { flex-direction: column-reverse; text-align: center; }
       .hero .content { text-align: center; }
       .hero .content p { margin-left: auto; margin-right: auto; }
-      .heading { text-align: center; border-left: none; border-bottom: 3px solid #FFD700; padding-left: 0; padding-bottom: 0.5rem; }
-      .review-card { text-align: center; border-left: none; border-top: 3px solid #FFD700; }
+      .heading { text-align: center; border-left: none; border-bottom: 3px solid #4A90E2; padding-left: 0; padding-bottom: 0.5rem; }
+      .review-card { text-align: center; border-left: none; border-top: 3px solid #4A90E2; }
       .review-card img { margin-left: auto; margin-right: auto; }
       .meta { flex-direction: column; align-items: stretch; }
       .add-to-cart-btn { justify-content: center; }
@@ -672,8 +687,6 @@
       .meta { padding: 0.6rem 1rem 1rem; }
       .cart-sidebar { width: 100%; right: -100%; }
       .cart-items { max-height: calc(100vh - 300px); }
-      .cart-item { flex-wrap: wrap; }
-      .delete-item { margin-top: 0.5rem; }
     }
 
     @media (max-width: 400px) {
@@ -688,7 +701,7 @@
 <body>
 
 <header>
-  <a class="logo" href="#"><i class="fas fa-seedling"></i>Salmut<span style="font-weight:400; background:none; color:#FFE5A0;"> — Salad Buah Imut</span></a>
+  <a class="logo" href="#"><i class="fas fa-seedling"></i>Salmut<span style="font-weight:400; background:none; color:#4A90E2;"> — Salad Buah Imut</span></a>
   <nav class="navbar">
     <a href="#home">Beranda</a>
     <a href="#speciality">Menu</a>
@@ -722,7 +735,7 @@
       <p>Porsi kecil, cocok untuk camilan. Buah segar + saus yogurt pilihan.</p>
       <div class="meta">
         <button class="add-to-cart-btn" onclick="addToCart('Salad Buah Cup',7000,'product1.jpg')"><i class="fas fa-cart-plus"></i> Tambah ke Keranjang</button>
-        <span><i class="fas fa-star"></i> Cup</span>
+        <span><i class="fas fa-star" style="color:#4A90E2;"></i> Cup</span>
       </div>
     </div>
     <div class="card">
@@ -732,7 +745,7 @@
       <p>Porsi jumbo, lebih banyak buah + taburan keju leleh di atas.</p>
       <div class="meta">
         <button class="add-to-cart-btn" onclick="addToCart('Salad Buah Jumbo + Keju',10000,'product 2.jpg')"><i class="fas fa-cart-plus"></i> Tambah ke Keranjang</button>
-        <span><i class="fas fa-crown"></i> Jumbo</span>
+        <span><i class="fas fa-crown" style="color:#4A90E2;"></i> Jumbo</span>
       </div>
     </div>
   </div>
@@ -771,9 +784,9 @@
   </div>
   <div class="cart-items" id="cartItems">
     <div style="text-align:center;padding:2rem;">
-      <i class="fas fa-seedling" style="font-size:2.5rem;color:#FFD700"></i>
-      <p style="margin-top:12px;">Keranjang belanja kosong</p>
-      <p style="font-size:0.8rem; color:#777;">Yuk, pesan salad segar!</p>
+      <i class="fas fa-seedling" style="font-size:2.5rem;color:#4A90E2"></i>
+      <p style="margin-top:12px; color:#5A6E8C;">Keranjang belanja kosong</p>
+      <p style="font-size:0.8rem; color:#A0B0C0;">Yuk, pesan salad segar!</p>
     </div>
   </div>
   <div class="cart-summary" id="cartSummary" style="display:none">
@@ -796,25 +809,25 @@
 <footer>
   <div class="footer-grid">
     <div>
-      <h3><i class="fas fa-phone-alt"></i> Contact</h3>
+      <h3><i class="fas fa-phone-alt" style="color:#4A90E2;"></i> Contact</h3>
       <p>WhatsApp: <a href="https://wa.me/62895610454357" target="_blank">+62 895-6104-54357</a></p>
       <p>Instagram: <a href="https://www.instagram.com/salmut._" target="_blank">@salmut._</a></p>
     </div>
     <div>
-      <h3><i class="fas fa-map-marker-alt"></i> Alamat</h3>
+      <h3><i class="fas fa-map-marker-alt" style="color:#4A90E2;"></i> Alamat</h3>
       <p>Jl. Letjen Ibrahim Adjie No.178, RT.03/RW.08, Sindangbarang, Kec. Bogor Bar., Kota Bogor, Jawa Barat 16117</p>
       <div class="map">
-        <iframe width="100%" height="150" frameborder="0" style="border-radius: 16px; border:1px solid rgba(255,215,0,0.2);" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.5318670904594!2d106.76465207499344!3d-6.58060459341292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c4f906e40827%3A0x6b93a4462670547c!2sSMK%20Infokom%20Kota%20Bogor!5e0!3m2!1sid!2sid!4v1763813178680"></iframe>
+        <iframe width="100%" height="150" frameborder="0" style="border-radius: 16px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.5318670904594!2d106.76465207499344!3d-6.58060459341292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c4f906e40827%3A0x6b93a4462670547c!2sSMK%20Infokom%20Kota%20Bogor!5e0!3m2!1sid!2sid!4v1763813178680"></iframe>
       </div>
     </div>
     <div>
-      <h3><i class="fas fa-heart"></i> Follow Us</h3>
+      <h3><i class="fas fa-heart" style="color:#4A90E2;"></i> Follow Us</h3>
       <div class="social-icons">
         <a href="https://www.instagram.com/salmut._" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/62895610454357" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       </div>
       <p style="margin-top:1rem;">✨ Created for school project — Salmut (Salad Buah Imut) ✨</p>
-      <p style="font-size:0.75rem; color:#666;">© 2024 Salmut. Fresh & Healthy.</p>
+      <p style="font-size:0.75rem; color:#A0B0C0;">© 2024 Salmut. Fresh & Healthy.</p>
     </div>
   </div>
 </footer>
@@ -843,7 +856,6 @@ function addToCart(name, price, image) {
   }
   updateCart();
   
-  // Bounce animation
   const cartIcon = document.querySelector(".cart-icon");
   cartIcon.classList.add("bounce");
   setTimeout(() => cartIcon.classList.remove("bounce"), 400);
@@ -861,9 +873,9 @@ function updateCart() {
   if (cart.length === 0) {
     cartItems.innerHTML = `
       <div style="text-align:center;padding:2rem;">
-        <i class="fas fa-seedling" style="font-size:2.5rem;color:#FFD700"></i>
-        <p style="margin-top:12px;">Keranjang belanja kosong</p>
-        <p style="font-size:0.8rem; color:#777;">Yuk, pesan salad segar!</p>
+        <i class="fas fa-seedling" style="font-size:2.5rem;color:#4A90E2"></i>
+        <p style="margin-top:12px; color:#5A6E8C;">Keranjang belanja kosong</p>
+        <p style="font-size:0.8rem; color:#A0B0C0;">Yuk, pesan salad segar!</p>
       </div>
     `;
     cartSummary.style.display = "none";
@@ -922,7 +934,7 @@ function checkoutWhatsApp() {
     return;
   }
   
-  let message = "🍍 *SALMUT - Salad Buah Imut* 🍓\n";
+  let message = "🥗 *SALMUT - Salad Buah Imut* 🍓\n";
   message += "Halo kak " + name + ", saya ingin memesan:\n\n";
   
   cart.forEach(item => {
@@ -944,12 +956,11 @@ function checkoutWhatsApp() {
   const encodedMessage = encodeURIComponent(message);
   window.open(`https://wa.me/62895610454357?text=${encodedMessage}`, '_blank');
   
-  // Confetti effect
   for (let i = 0; i < 100; i++) {
     const confetti = document.createElement("div");
     confetti.className = "confetti";
     confetti.style.left = Math.random() * 100 + "vw";
-    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 90%, 60%)`;
+    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 60%)`;
     confetti.style.width = (Math.random() * 8 + 6) + "px";
     confetti.style.height = confetti.style.width;
     confetti.style.animationDuration = 0.8 + Math.random() * 1.5 + "s";
