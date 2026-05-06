@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover" />
+<title>Salmut — Salad Buah Imut | Premium Fresh</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #050505;
+  color: #F5EFE6;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+:root {
+  --gold: #FFD700;
+  --gold-dark: #DAA520;
+  --gold-light: #FFF2CC;
+  --obsidian: #0A0A0A;
+  --card-bg: #111312;
+  --gold-glow: 0 0 20px rgba(255, 215, 0, 0.3);
+  --shadow-gold: 0 25px 45px -15px rgba(255, 215, 0, 0.2);
+}
+
+/* ANIMASI HIDUP */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 5px rgba(255,215,0,0.3); border-color: rgba(255,215,0,0.3); }
+  50% { box-shadow: 0 0 20px rgba(255,215,0,0.6); border-color: rgba(255,215,0,0.8); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0A0A0A; }
+::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #FFD700, #DAA520); border-radius: 10px; }
+
+/* HEADER SUPER RESPONSIF */
+header {
+  background: rgba(5, 5, 5, 0.92);
+  backdrop-filter: blur(16px);
+  padding: 0.8rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.35);
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.logo {
+  font-size: clamp(1.2rem, 5vw, 1.8rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #FFD700 0%, #FFE5A0 40%, #DAA520 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  letter-spacing: -0.3px;
+}
+
+.logo i {
+  font-size: clamp(1.3rem, 5vw, 1.9rem);
+  background: linear-gradient(135deg, #FFD700, #DAA520);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.navbar {
+  display: flex;
+  gap: clamp(0.8rem, 3vw, 2rem);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #E8E0D5;
+  transition: 0.3s;
+  font-size: clamp(0.75rem, 3vw, 0.9rem);
+  letter-spacing: 0.3px;
+  position: relative;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #FFD700, #DAA520);
+  transition: 0.3s;
+}
+
+.navbar a:hover::after { width: 100%; }
+.navbar a:hover { color: #FFD700; }
+
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  background: rgba(255, 215, 0, 0.12);
+  padding: clamp(6px, 2vw, 10px) clamp(12px, 4vw, 18px);
+  border-radius: 100px;
+  transition: all 0.3s;
+  color: #FFD700;
+  border: 1px solid rgba(255,215,0,0.3);
+  animation: pulseGold 2s infinite;
+}
+
+.cart-icon:hover {
+  background: rgba(255, 215, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.cart-count {
+  position: absolute;
+  top: -4px;
+  right: -2px;
+  background: linear-gradient(135deg, #FFD700, #DAA520);
+  color: #050505;
+  font-weight: 900;
+  border-radius: 30px;
+  width: clamp(18px, 5vw, 22px);
+  height: clamp(18px, 5vw, 22px);
+  font-size: clamp(0.6rem, 2.5vw, 0.7rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* HERO - RESPONSIVE TOTAL */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  padding: clamp(2rem, 6vw, 5rem) clamp(1.5rem, 5vw, 8%);
+  background: radial-gradient(ellipse at 80% 40%, rgba(255,215,0,0.06) 0%, #050505 75%);
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.hero .content {
+  flex: 1.2;
+  min-width: 250px;
+}
+
+.hero .image {
+  flex: 1;
+  text-align: center;
+}
+
+.content h1 {
+  font-size: clamp(1.8rem, 7vw, 4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  background: linear-gradient(125deg, #FFD700 0%, #FFEAA0 40%, #DAA520 80%, #FFD700 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.8rem;
+}
+
+.content p {
+  font-size: clamp(0.85rem, 3.5vw, 1rem);
+  color: #C5BFB0;
+  max-width: 550px;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.cta {
+  background: linear-gradient(115deg, #FFD700, #DAA520);
+  padding: clamp(0.7rem, 2.5vw, 1rem) clamp(1.5rem, 5vw, 2.5rem);
+  border-radius: 60px;
+  color: #050505;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 25px rgba(255,215,0,0.2);
+  transition: all 0.4s;
+  font-size: clamp(0.85rem, 3vw, 1rem);
+}
+
+.cta:hover {
+  transform: translateY(-4px);
+  gap: 15px;
+  box-shadow: 0 20px 35px rgba(255,215,0,0.4);
+}
+
+.hero .image img {
+  max-width: min(100%, 380px);
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 20px 40px -10px rgba(255,215,0,0.3), 0 0 0 3px rgba(255,215,0,0.2);
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+/* HEADINGS */
+.heading {
+  text-align: left;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1.8rem;
+  padding-left: 0;
+  border-left: 4px solid #FFD700;
+  padding-left: 1rem;
+}
+
+.heading span {
+  background: linear-gradient(120deg, #FFD700, #FFE5A0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+section {
+  padding: clamp(2rem, 6vw, 4rem) clamp(1.5rem, 5vw, 8%);
+}
+
+/* CARD GRID */
+.box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.card {
+  background: linear-gradient(145deg, #131715, #0C0F0E);
+  border-radius: 28px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 15px 35px -10px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,215,0,0.2);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 45px -12px rgba(255,215,0,0.3);
+  border-color: rgba(255,215,0,0.6);
+}
+
+.card img {
+  width: 100%;
+  height: clamp(180px, 30vw, 240px);
+  object-fit: cover;
+  transition: 0.5s;
+}
+.card:hover img { transform: scale(1.03); }
+
+.card h3 {
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  font-weight: 700;
+  margin: 1rem 1.2rem 0.3rem;
+  color: #FFD700;
+}
+
+.price {
+  font-size: clamp(1.2rem, 4.5vw, 1.6rem);
+  font-weight: 800;
+  color: #FFE5A0;
+  margin: 0 1.2rem;
+}
+
+.card p {
+  color: #B0A99A;
+  margin: 0.5rem 1.2rem;
+  font-size: clamp(0.8rem, 3vw, 0.85rem);
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem 1.3rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.add-to-cart-btn {
+  background: linear-gradient(95deg, #FFD700, #DAA520);
+  border: none;
+  padding: clamp(0.5rem, 2vw, 0.7rem) clamp(1rem, 3vw, 1.3rem);
+  border-radius: 50px;
+  color: #050505;
+  font-weight: 700;
+  font-size: clamp(0.75rem, 2.5vw, 0.85rem);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-to-cart-btn:hover { gap: 10px; transform: scale(1.02); }
+
+/* REVIEW */
+.review-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-top: 1rem;
+}
+
+.review-card {
+  background: linear-gradient(135deg, #131715, #0A0D0C);
+  border-radius: 28px;
+  padding: clamp(1.2rem, 4vw, 1.8rem);
+  text-align: left;
+  box-shadow: 0 15px 30px -10px rgba(0,0,0,0.5);
+  transition: 0.3s;
+  border-left: 3px solid #FFD700;
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+}
+
+.review-card img {
+  width: clamp(55px, 12vw, 70px);
+  height: clamp(55px, 12vw, 70px);
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.8rem;
+  border: 2px solid #FFD700;
+}
+
+.review-card h3 { font-weight: 700; margin-bottom: 6px; color: #FFD700; font-size: clamp(0.9rem, 3.5vw, 1rem); }
+.review-card p { color: #C5BFB0; font-size: clamp(0.8rem, 3vw, 0.85rem); line-height: 1.5; }
+
+/* CART SIDEBAR */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(10px);
+  display: none;
+  z-index: 2100;
+}
+
+.cart-sidebar {
+  position: fixed;
+  right: -100%;
+  top: 0;
+  width: min(480px, 90%);
+  max-width: 480px;
+  height: 100vh;
+  background: #0B0D0C;
+  box-shadow: -20px 0 50px rgba(0,0,0,0.6);
+  transition: right 0.4s ease;
+  z-index: 2200;
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid #FFD700;
+}
+
+.cart-sidebar.open {
+  right: 0;
+}
+
+.cart-header {
+  background: linear-gradient(115deg, #FFD700, #DAA520);
+  padding: clamp(1rem, 4vw, 1.3rem);
+  display: flex;
+  justify-content: space-between;
+  color: #050505;
+}
+
+.cart-header h2 { font-size: clamp(1.1rem, 4vw, 1.3rem); font-weight: 800; }
+
+.close-cart {
+  background: rgba(5,5,5,0.2);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.cart-items { flex: 1; overflow-y: auto; padding: 1rem; }
+.cart-item {
+  display: flex;
+  gap: 0.8rem;
+  background: #1A1F1D;
+  margin-bottom: 0.8rem;
+  padding: 0.8rem;
+  border-radius: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.cart-item img { width: 60px; height: 60px; border-radius: 14px; object-fit: cover; }
+.item-info h4 { font-size: 0.9rem; color: #FFD700; }
+.qty-control { display: flex; gap: 0.6rem; align-items: center; margin-top: 5px; }
+.qty-btn {
+  background: #2D3330;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 30px;
+  font-weight: 800;
+  cursor: pointer;
+  color: #FFD700;
+}
+.delete-item { color: #FFB347; cursor: pointer; margin-left: auto; }
+.cart-summary { padding: 1rem; border-top: 2px solid #FFD700; background: #0B0D0C; }
+.cart-total { font-weight: 800; font-size: clamp(1.2rem, 5vw, 1.4rem); display: flex; justify-content: space-between; color: #FFD700; }
+.checkout-form input, .checkout-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 0.7rem;
+  border-radius: 14px;
+  border: 1px solid #FFD700;
+  background: #1A1F1D;
+  color: white;
+  font-size: 0.85rem;
+}
+.checkout-btn {
+  background: linear-gradient(95deg, #25D366, #128C7E);
+  border: none;
+  padding: 0.9rem;
+  border-radius: 50px;
+  font-weight: 700;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* FOOTER RESPONSIF */
+footer {
+  background: #030303;
+  padding: clamp(1.5rem, 5vw, 3rem) clamp(1.5rem, 5vw, 8%);
+  border-top: 1px solid rgba(255,215,0,0.2);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: clamp(1rem, 4vw, 2rem);
+}
+footer h3 { color: #FFD700; margin-bottom: 0.8rem; font-size: clamp(0.9rem, 4vw, 1.1rem); }
+footer p, footer a { color: #A8A29E; font-size: clamp(0.75rem, 3vw, 0.85rem); text-decoration: none; }
+footer a:hover { color: #FFD700; }
+.social-icons a {
+  background: rgba(255,215,0,0.1);
+  padding: clamp(8px, 2.5vw, 10px) clamp(12px, 3.5vw, 16px);
+  border-radius: 50px;
+  display: inline-flex;
+  margin-right: 8px;
+  color: #FFD700;
+  transition: 0.25s;
+}
+.social-icons a:hover { background: #FFD700; color: #050505; }
+
+/* CONFETTI */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -20px;
+  z-index: 10000;
+  animation: confettiFall linear forwards;
+  pointer-events: none;
+}
+@keyframes confettiFall {
+  to { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+.bounce {
+  animation: bounceAnim 0.4s ease;
+}
+@keyframes bounceAnim {
+  0%,100%{ transform: scale(1);}
+  50%{ transform: scale(1.3);}
+}
+
+/* RESPONSIVE BREAKPOINTS EXTRA */
+@media (max-width: 680px) {
+  header { flex-direction: column; text-align: center; }
+  .navbar { justify-content: center; width: 100%; }
+  .hero { flex-direction: column-reverse; text-align: center; }
+  .hero .content { text-align: center; }
+  .hero .content p { margin-left: auto; margin-right: auto; }
+  .heading { text-align: center; border-left: none; border-bottom: 3px solid #FFD700; padding-left: 0; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+  .review-card { text-align: center; border-left: none; border-top: 3px solid #FFD700; }
+  .review-card img { margin-left: auto; margin-right: auto; }
+  .meta { flex-direction: column; align-items: stretch; }
+  .add-to-cart-btn { justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .card h3 { margin: 0.8rem 1rem 0.2rem; }
+  .price { margin: 0 1rem; }
+  .card p { margin: 0.4rem 1rem; }
+  .meta { padding: 0.6rem 1rem 1rem; }
+  .cart-sidebar { width: 100%; right: -100%; }
+}
+
+@media (max-width: 380px) {
+  .navbar a { font-size: 0.7rem; }
+  .logo { font-size: 1rem; }
+  .cart-icon { padding: 5px 10px; }
+}
+
+/* MAP IFRAME RESPONSIF */
+.map iframe {
+  width: 100%;
+  height: auto;
+  min-height: 140px;
+  border-radius: 16px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#"><i class="fas fa-seedling"></i>Salmut<span style="font-weight:400; background:none; color:#FFE5A0;"> — Salad Buah Imut</span></a>
+  <nav class="navbar">
+    <a href="#home">Beranda</a>
+    <a href="#speciality">Menu</a>
+    <a href="#gallery">Galeri</a>
+    <a href="#review">Testimoni</a>
+    <div class="cart-icon" onclick="toggleCart()">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="content">
+    <h1>Salmut — Salad Buah Imut</h1>
+    <p>✨ Segar, manis, dan penuh warna — Salad buah sehat untuk tugas sekolahmu! Pilih porsi, tambahkan catatan (mis. tanpa madu, ekstra keju), lalu checkout via WhatsApp.</p>
+    <a class="cta" href="#speciality"><i class="fas fa-gem"></i> Pesan Sekarang</a>
+  </div>
+  <div class="image">
+    <img src="images/Sample/logo_salmut.jpeg" alt="Salad Buah Imut">
+  </div>
+</section>
+
+<section id="speciality">
+  <h2 class="heading">Menu <span>Spesial</span> Kami</h2>
+  <div class="box-container">
+    <div class="card"><img src="images/Sample/product1.jpg" alt="Salad Cup"><h3>Salad Buah Cup</h3><p class="price">Rp 7.000</p><p>Porsi kecil, cocok untuk camilan. Buah segar + saus yogurt pilihan.</p><div class="meta"><button class="add-to-cart-btn" onclick="addToCart('Salad Buah Cup',7000,'images/Sample/product1.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button><span><i class="fas fa-star"></i> Cup</span></div></div>
+    <div class="card"><img src="images/Sample/product 2.jpg" alt="Jumbo Keju"><h3>Salad Buah Jumbo + Topping Keju</h3><p class="price">Rp 10.000</p><p>Porsi jumbo, lebih banyak buah + taburan keju leleh di atas.</p><div class="meta"><button class="add-to-cart-btn" onclick="addToCart('Salad Buah Jumbo + Keju',10000,'images/Sample/product 2.jpg')"><i class="fas fa-cart-plus"></i> Tambah</button><span><i class="fas fa-crown"></i> Jumbo</span></div></div>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2 class="heading">Our <span>Gallery</span></h2>
+  <div class="box-container">
+    <div class="card"><img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=900&q=80" alt="fresh"><h3>Tampilan Segar</h3><p>Warna buah segar yang menggoda selera.</p></div>
+    <div class="card"><img src="images/Sample/siap kirim.jpeg" alt="packaging"><h3>Siap Kirim</h3><p>Paket rapi, siap antar ke sekolah atau rumah.</p></div>
+  </div>
+</section>
+
+<section id="review">
+  <h2 class="heading">Customer <span>Reviews</span></h2>
+  <div class="review-container">
+    <div class="review-card"><img src="https://i.pravatar.cc/150?img=1" alt="Alya"/><h3>Alya</h3><p>"Rasanya seger banget! Creamy tapi ga enek. Pasti beli lagi!"</p></div>
+    <div class="review-card"><img src="https://i.pravatar.cc/150?img=12" alt="Rafi"/><h3>Rafi</h3><p>"Salad buah jumbo kejunya mantap! Harga murah kualitas tinggi."</p></div>
+    <div class="review-card"><img src="https://i.pravatar.cc/150?img=5" alt="Nisa"/><h3>Nisa</h3><p>"Porsinya pas, buahnya fresh, cocok buat ngemil sehat!"</p></div>
+  </div>
+</section>
+
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header"><h2><i class="fas fa-shopping-bag"></i> Keranjang Belanja</h2><button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button></div>
+  <div class="cart-items" id="cartItems"><div style="text-align:center;padding:2rem;"><i class="fas fa-seedling" style="font-size:2rem;color:#FFD700"></i><p style="margin-top:10px;">Keranjang belanja kosong</p></div></div>
+  <div class="cart-summary" id="cartSummary" style="display:none">
+    <div class="cart-total"><span>Total:</span><span id="cartTotal">Rp 0</span></div>
+    <div class="checkout-form">
+      <input type="text" id="customerName" placeholder="Nama lengkap">
+      <input type="tel" id="customerPhone" placeholder="No. telepon (WhatsApp)">
+      <textarea id="customerAddress" placeholder="Alamat pengiriman (optional)" rows="2"></textarea>
+      <textarea id="globalNotes" placeholder="Catatan pesanan (optional)" rows="2"></textarea>
+      <button class="checkout-btn" onclick="checkoutWhatsApp()"><i class="fab fa-whatsapp"></i> Checkout via WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div><h3>Contact</h3><p>WhatsApp: <a href="https://wa.me/62895610454357">+62 895-6104-54357</a></p><p>Instagram: <a href="https://www.instagram.com/salmut._">@salmut._</a></p></div>
+    <div><h3>Alamat</h3><p>Jl. Letjen Ibrahim Adjie No.178, RT.03/RW.08, Sindangbarang, Bogor Barat 16117</p><div class="map"><iframe width="100%" height="150" frameborder="0" style="border-radius: 16px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.5318670904594!2d106.76465207499344!3d-6.58060459341292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c4f906e40827%3A0x6b93a4462670547c!2sSMK%20Infokom%20Kota%20Bogor!5e0!3m2!1sid!2sid!4v1763813178680"></iframe></div></div>
+    <div><h3>Follow Us</h3><div class="social-icons"><a href="https://www.instagram.com/salmut._"><i class="fab fa-instagram"></i></a><a href="https://wa.me/62895610454357"><i class="fab fa-whatsapp"></i></a></div><p style="margin-top:1rem;">Created for school project — Salmut (Salad Buah Imut)</p></div>
+  </div>
+</footer>
+
+<script>
+let cart = [];
+function toggleCart() {
+  const sidebar = document.getElementById("cartSidebar");
+  const overlay = document.getElementById("cartOverlay");
+  if (sidebar.style.right === "0px") {
+    sidebar.style.right = "-100%";
+    overlay.style.display = "none";
+  } else {
+    sidebar.style.right = "0px";
+    overlay.style.display = "block";
+  }
+}
+function addToCart(n,p,i){
+  let item=cart.find(x=>x.name===n);
+  if(item) item.qty++;
+  else cart.push({name:n,price:p,image:i,qty:1});
+  updateCart();
+  document.querySelector(".cart-icon").classList.add("bounce");
+  setTimeout(()=>document.querySelector(".cart-icon").classList.remove("bounce"),400);
+}
+function updateCart(){
+  let cnt=document.getElementById("cartCount"),itemsDiv=document.getElementById("cartItems"),sumDiv=document.getElementById("cartSummary"),totalSpan=document.getElementById("cartTotal");
+  let qty=cart.reduce((a,b)=>a+b.qty,0);
+  cnt.innerText=qty;
+  if(cart.length===0){
+    itemsDiv.innerHTML=`<div style="text-align:center;padding:2rem;"><i class="fas fa-seedling" style="font-size:2rem;color:#FFD700"></i><p style="margin-top:10px;">Keranjang belanja kosong</p></div>`;
+    sumDiv.style.display="none"; return;
+  }
+  sumDiv.style.display="block";
+  itemsDiv.innerHTML="";
+  cart.forEach((it,idx)=>{
+    itemsDiv.innerHTML+=`<div class="cart-item"><img src="${it.image}"><div class="item-info"><h4>${it.name}</h4><p>Rp ${it.price.toLocaleString()}</p><div class="qty-control"><button class="qty-btn" onclick="changeQty(${idx},-1)">-</button><span>${it.qty}</span><button class="qty-btn" onclick="changeQty(${idx},1)">+</button></div></div><i class="fas fa-trash-alt delete-item" onclick="deleteItem(${idx})"></i></div>`;
+  });
+  let total=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  totalSpan.innerText="Rp "+total.toLocaleString();
+}
+function changeQty(i,d){cart[i].qty+=d; if(cart[i].qty<=0) cart.splice(i,1); updateCart();}
+function deleteItem(i){cart.splice(i,1); updateCart();}
+function checkoutWhatsApp(){
+  if(cart.length===0){alert("Keranjang masih kosong!"); return;}
+  let name=document.getElementById("customerName").value.trim(),phone=document.getElementById("customerPhone").value.trim();
+  if(!name||!phone){alert("Nama & Nomor WhatsApp wajib diisi."); return;}
+  let msg=`Halo, saya ingin memesan:\n\n`;
+  cart.forEach(i=>{msg+=`• ${i.name} x${i.qty} = Rp ${(i.price*i.qty).toLocaleString()}\n`});
+  let total=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  msg+=`\nTotal: Rp ${total.toLocaleString()}\n\nNama: ${name}\nNo. WA: ${phone}`;
+  let addr=document.getElementById("customerAddress").value.trim();
+  if(addr) msg+=`\nAlamat: ${addr}`;
+  let notes=document.getElementById("globalNotes").value.trim();
+  if(notes) msg+=`\nCatatan: ${notes}`;
+  window.open(`https://wa.me/62895610454357?text=${encodeURIComponent(msg)}`);
+  for(let i=0;i<120;i++){
+    let c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.backgroundColor=`hsl(${Math.random()*360}, 90%, 60%)`;
+    c.style.animationDuration=0.8+Math.random()*1.8+"s";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),2500);
+  }
+}
+</script>
+</body>
+</html>
